@@ -1,43 +1,92 @@
 <!DOCTYPE html>
 <html>
-    <head>
-       <title> assignment on java script</title>>
-    </head>
- 
+
+<head>
+    <title>Java Script and DOM</title>
+    <script>
+        var correct = 0, wrong = 0;
+        function processPhrase() {
+
+            phrase1 = document.getElementById("phrase1").value
+            phrase2 = document.getElementById("phrase2").value
+            if (phrase1 == phrase2) {
+                correct = correct + 1;
+                document.getElementById("result").innerHTML = "Correct count " + correct;
+                alert("access allowed");
+            } else {
+
+                wrong = wrong + 1;
+                document.getElementById("result").innerHTML = "Wrong count " + wrong;
+                alert("access denied");
+            }
+        }
+    </script>
+</head>
+
 <body>
-    <h1>Pass phrase by kikkuri Sri Harsha</h1>
+    <h1>Pass phrase by Sri Harsha Kikkuri </h1>
+    <form>
+        <label for="phrase1">Enter the secret phrase </label>
+        <input type="password" id="phrase1" name="phrase1" value="Let me in"> <br>
+        <label for="phrase2">Enter a phrase</label>
+        <input type="text" id="phrase2" name="phrase2" autofocus> <br>
+        <br>
+        <input type="button" onclick="processPhrase()" value="Check the phrase">
+    </form>
 
-<h2>Getting input</h2>
-
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
-
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
-
-
-<p id="result">This text will be replaced </p>
-
-<script> 
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
-
-</body>
-</html> 
+    <p id="result">Attempts display here </p>
+    <div class="container">
+        <img src="image2.jpg" id="Kang" alt="Kangaroo" width="200px" height="200px" onclick="newImage()">
+    </div>
+    <script> 
+        let correct = 0;
+        let wrong = 0;
+        function giveAlert(){
+            alert("Account locked")
+        }
+        function processPhrase (){
+            s = document.getElementById("secret_phrase").value
+            console.log(s);
+            p = document.getElementById("check_phrase").value
+            console.log(p);
+            out = document.getElementById("result")
+            console.log(out);
+            if(s == p){
+                alert("Access allowed");
+                correct++
+                out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+            }else if(wrong >= 2){
+                document.getElementById("btn1").onclick = giveAlert()
+                giveAlert()
+                wrong++ 
+                out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+            }else {
+                alert("Access denied");
+                wrong++ 
+                out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+            }
+        }
+        let usingImage = 1;
+        function newImage(){
+            img = document.getElementById("goat")
+            switch (usingImage) {
+                case 1:
+                    img.src = "images/hound.jpg"
+                    usingImage = 2
+                    break;
+                case 2:
+                    img.src = "images/raggle.jpg"
+                    usingImage = 3
+                    break;
+                case 3:
+                    img.src = "images/goat.jpg"  
+                    usingImage = 1
+                    break;  
+                default:
+                    break;
+            }
+        }
+        </script>
+        
+        </body>
+        </html>
