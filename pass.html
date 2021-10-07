@@ -1,92 +1,89 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Java Script and DOM</title>
-    <script>
-        var correct = 0, wrong = 0;
-        function processPhrase() {
-
-            phrase1 = document.getElementById("phrase1").value
-            phrase2 = document.getElementById("phrase2").value
-            if (phrase1 == phrase2) {
-                correct = correct + 1;
-                document.getElementById("result").innerHTML = "Correct count " + correct;
-                alert("access allowed");
-            } else {
-
-                wrong = wrong + 1;
-                document.getElementById("result").innerHTML = "Wrong count " + wrong;
-                alert("access denied");
-            }
-        }
-    </script>
-</head>
-
+ <head>
+     <title>Pass Page</title>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+ </head>
 <body>
-    <h1>Pass phrase by Sri Harsha Kikkuri </h1>
-    <form>
-        <label for="phrase1">Enter the secret phrase </label>
-        <input type="password" id="phrase1" name="phrase1" value="Let me in"> <br>
-        <label for="phrase2">Enter a phrase</label>
-        <input type="text" id="phrase2" name="phrase2" autofocus> <br>
-        <br>
-        <input type="button" onclick="processPhrase()" value="Check the phrase">
-    </form>
+<div class="container">
+<h2>Pass Phrase by Sri Harsha Kikkuri</h2>
 
-    <p id="result">Attempts display here </p>
-    <div class="container">
-        <img src="image2.jpg" id="Kang" alt="Kangaroo" width="200px" height="200px" onclick="newImage()">
-    </div>
-    <script> 
-        let correct = 0;
-        let wrong = 0;
-        function giveAlert(){
-            alert("Account locked")
-        }
-        function processPhrase (){
-            s = document.getElementById("secret_phrase").value
-            console.log(s);
-            p = document.getElementById("check_phrase").value
-            console.log(p);
-            out = document.getElementById("result")
-            console.log(out);
-            if(s == p){
-                alert("Access allowed");
-                correct++
-                out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
-            }else if(wrong >= 2){
-                document.getElementById("btn1").onclick = giveAlert()
-                giveAlert()
-                wrong++ 
-                out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
-            }else {
-                alert("Access denied");
-                wrong++ 
-                out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
-            }
-        }
-        let usingImage = 1;
-        function newImage(){
-            img = document.getElementById("goat")
-            switch (usingImage) {
-                case 1:
-                    img.src = "images/hound.jpg"
-                    usingImage = 2
-                    break;
-                case 2:
-                    img.src = "images/raggle.jpg"
-                    usingImage = 3
-                    break;
-                case 3:
-                    img.src = "images/goat.jpg"  
-                    usingImage = 1
-                    break;  
-                default:
-                    break;
-            }
-        }
-        </script>
-        
-        </body>
-        </html>
+<form style="width: 300px;">
+   <div class="form-check">
+    <label class="form-label" for="secrect_phrase">Enter the secret phrase</label>
+    <input type ="password" class="form-control" id="secret_phrase" name="secrect_phrase" min=10 max=50 step=2 value="Let me in"> <br>
+
+    <label class="form-label" for="check_phrase">Enter a phrase</label>
+    <input type ="text" class="form-control" id="check_phrase" name="check_phrase" autofocus> <br>
+
+    <input type="button" class="btn btn-primary" id="btn1" onclick="processPhrase()" value="Check the phrase">
+   </div>
+</form>
+
+
+<p id="result">This text will be replaced </p>
+</div>
+
+<div class="container">
+    <img src="image1.jpg" id="kangaru" alt="kangaroo" width="200px" height="200px" onclick="newImage()">
+</div>
+
+<script> 
+let correct = 0;
+let wrong = 0;
+function giveAlert(){
+    alert("Account locked")
+}
+function processPhrase (){
+    s = document.getElementById("secret_phrase").value
+    console.log(s);
+    p = document.getElementById("check_phrase").value
+    console.log(p);
+    out = document.getElementById("result")
+    console.log(out);
+    if(s == p){
+        alert("Access allowed");
+        correct++
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+    }else if(wrong >= 2){
+        document.getElementById("btn1").onclick = giveAlert()
+        wrong++ 
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+    }else {
+        alert("Access denied");
+        wrong++ 
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+    }
+}
+let usingImage = 1;
+function newImage(){
+    img = document.getElementById("Kangaroo")
+    switch (usingImage) {
+        case 1:
+            img.src = "image1.jpg"
+            usingImage = 2
+            break;
+        case 2:
+            img.src = "image2.jpg"
+            usingImage = 3
+            break;
+        case 3:
+            img.src = "image3.jpg"  
+            usingImage = 1
+            break;  
+        default:
+            break;
+    }
+}
+</script>
+
+</body>
+</html>
